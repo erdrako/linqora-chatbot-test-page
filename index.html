@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Landing de prueba para validar una implementacion puntual del chatbot de Linqora IT."
+    />
+    <title>Linqora Chatbot Test</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__content">
+          <p class="eyebrow">Linqora IT</p>
+          <h1 id="page-title">Prueba de chatbot embebible</h1>
+          <p>
+            Esta pagina esta separada de produccion para validar el widget,
+            conversaciones, respuestas y captura de datos sobre un bot puntual.
+          </p>
+          <div class="hero__actions">
+            <a class="button button-primary" href="#test-area">Ver prueba</a>
+            <a class="button button-secondary" href="https://linqorait.com/docs/chatbot">
+              Documentacion
+            </a>
+          </div>
+        </div>
+        <div class="hero__panel" id="test-area">
+          <span>Bot conectado</span>
+          <strong>bot_ded58b53</strong>
+          <p>
+            El widget debe aparecer en la esquina inferior derecha. Usalo para
+            validar el flujo real desde Cloudflare Pages.
+          </p>
+        </div>
+      </section>
+
+      <section class="checklist" aria-label="Checklist de prueba">
+        <article>
+          <strong>Widget</strong>
+          <span>Carga desde chat.linqorait.com</span>
+        </article>
+        <article>
+          <strong>Bot</strong>
+          <span>Usa el ID solicitado para esta prueba</span>
+        </article>
+        <article>
+          <strong>Deploy</strong>
+          <span>Cloudflare Pages actualiza al pushear main</span>
+        </article>
+      </section>
+    </main>
+
+    <script
+      src="https://chat.linqorait.com/widget.js"
+      data-bot-id="bot_ded58b53-30f3-452f-85e9-f070039fcfbe"
+    ></script>
+  </body>
+</html>
