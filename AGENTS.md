@@ -26,6 +26,8 @@ Antes de planificar o implementar cambios:
   arquitectura, operacion, datos, deploy o estado de producto.
 - Actualizar `docs/PROJECT_STATUS.md` cuando cambien estado, pendientes,
   riesgos, deploys, fuentes de verdad o proximos pasos.
+- Al actualizar archivos generados de gobernanza, mantener el cambio enfocado y
+  evitar churn de formato no relacionado.
 - Cuando algo quede "a monitorear", "congelado", "para mas adelante" o
   "pendiente de analizar", registrar fecha absoluta y razon breve.
 
