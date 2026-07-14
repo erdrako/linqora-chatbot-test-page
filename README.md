@@ -17,3 +17,9 @@ Linqora IT.
 
 La pagina no usa Vite ni variables de entorno. Cloudflare Pages debe servir los
 archivos estaticos directamente desde el repo.
+
+## Gobernanza
+
+Las guias compartidas para agentes se mantienen en `AGENTS.md`. La fuente
+central es `linqora-project`, y el workflow `Validate AGENTS` detecta drift
+cuando el repo tiene configurado `LINQORA_GOVERNANCE_TOKEN`.
