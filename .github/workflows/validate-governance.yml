@@ -2,16 +2,13 @@
 # Do not edit directly.
 # Policy: validate-governance
 # Version: 1
-# Source commit: 830e482
-# Content hash: e3a867a54f62e819
+# Source commit: 78d6f94
+# Content hash: 2d6a23d8837bb6dc
 
 name: Validate governance
 
 on:
   pull_request:
-    paths:
-      - "AGENTS.md"
-      - ".github/workflows/validate-governance.yml"
   workflow_dispatch:
 
 jobs:
@@ -26,6 +23,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+
+      - name: Validate local governance hygiene
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -f ".github/workflows/validate-agents.yml" ]; then
+            echo "::error::.github/workflows/validate-agents.yml is legacy. Use validate-governance.yml."
+            exit 1
+          fi
+
+          scan_targets=()
+          for path in AGENTS.md .github scripts; do
+            if [ -e "$path" ]; then
+              scan_targets+=("$path")
+            fi
+          done
+
+          if [ "${#scan_targets[@]}" -gt 0 ] && grep -R --line-number --exclude="validate-governance.yml" -E "sync-agent-guidelines|distribute-agent-guidelines" "${scan_targets[@]}"; then
+            echo "::error::Legacy AGENTS synchronization references are not allowed."
+            exit 1
+          fi
 
       - name: Check governance read token
         id: token
