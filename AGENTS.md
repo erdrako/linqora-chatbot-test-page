@@ -3,7 +3,7 @@
 <!-- LINQORA_SHARED_AGENT_GUIDELINES:BEGIN -->
 # Guias Compartidas Para Agentes Linqora
 
-Fecha de ultima revision: 2026-07-13.
+Fecha de ultima revision: 2026-10-25.
 
 Estas reglas pueden sincronizarse dentro de `AGENTS.md` usando marcadores
 controlados. Las reglas locales de cada repo deben permanecer fuera del bloque
@@ -40,6 +40,22 @@ Antes de planificar o implementar cambios:
   pedido explicito para una tarea operativa concreta.
 - No copiar tokens al chat ni a documentacion.
 - Documentar problemas operativos repetibles sin incluir valores sensibles.
+
+## Pagos Y Perfil PCI-Ready
+
+- Mantener a Linqora fuera del flujo de datos de tarjeta: no solicitar, recibir,
+  almacenar ni registrar PAN, CVV, vencimiento o datos de autenticacion.
+- Usar checkout alojado o campos seguros del proveedor confirmados para SAQ A.
+- No persistir payloads externos completos; conservar solo campos allowlisted y
+  normalizados necesarios para conciliacion.
+- Mantener secretos y tokens fuera del frontend, logs, analytics, URLs y
+  documentacion; separar credenciales por ambiente.
+- Exigir firma, idempotencia y verificacion server-to-server antes de producir
+  efectos economicos.
+- Todo cambio de pagos debe pasar `verify:pci-boundary` y el checklist definido
+  en `linqora-project/docs/governance/pci-ready-engineering-guidelines.md`.
+- Un cambio de checkout, proveedor o recorrido de datos requiere revisar el
+  alcance PCI antes de implementar.
 
 ## GitHub Y Operacion
 
