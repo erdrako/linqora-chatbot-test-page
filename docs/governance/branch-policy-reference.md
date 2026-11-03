@@ -2,7 +2,7 @@
 <!-- Do not edit directly. -->
 <!-- Policy: branch-policy-reference -->
 <!-- Version: 1 -->
-<!-- Source commit: 7dc41bd -->
+<!-- Source commit: 6f21239 -->
 <!-- Content hash: 6597a81ff32cb0bf -->
 
 # Linqora Branch Policy Reference
