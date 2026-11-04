@@ -64,6 +64,10 @@ Antes de planificar o implementar cambios:
   coordinacion cross-repo.
 - Usar el GitHub Project como tablero operativo y mantener `Workflow status`
   como estado primario.
+- Antes de informar estado general o pendientes, consultar el GitHub Project;
+  issues y PRs por repositorio son fuentes complementarias, no sustitutas.
+- Si el Project no puede leerse, declarar el inventario incompleto y no afirmar
+  que no existen pendientes. La consulta de estado debe fallar cerrado.
 - No cerrar items que dependen de actividad real o decision externa; dejarlos
   clasificados como `Ready`, `Blocked` o `Parked` segun corresponda.
 <!-- LINQORA_SHARED_AGENT_GUIDELINES:END -->
