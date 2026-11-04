@@ -3,7 +3,7 @@
 <!-- LINQORA_SHARED_AGENT_GUIDELINES:BEGIN -->
 # Guias Compartidas Para Agentes Linqora
 
-Fecha de ultima revision: 2026-07-13.
+Fecha de ultima revision: 2026-10-25.
 
 Estas reglas pueden sincronizarse dentro de `AGENTS.md` usando marcadores
 controlados. Las reglas locales de cada repo deben permanecer fuera del bloque
@@ -41,6 +41,22 @@ Antes de planificar o implementar cambios:
 - No copiar tokens al chat ni a documentacion.
 - Documentar problemas operativos repetibles sin incluir valores sensibles.
 
+## Pagos Y Perfil PCI-Ready
+
+- Mantener a Linqora fuera del flujo de datos de tarjeta: no solicitar, recibir,
+  almacenar ni registrar PAN, CVV, vencimiento o datos de autenticacion.
+- Usar checkout alojado o campos seguros del proveedor confirmados para SAQ A.
+- No persistir payloads externos completos; conservar solo campos allowlisted y
+  normalizados necesarios para conciliacion.
+- Mantener secretos y tokens fuera del frontend, logs, analytics, URLs y
+  documentacion; separar credenciales por ambiente.
+- Exigir firma, idempotencia y verificacion server-to-server antes de producir
+  efectos economicos.
+- Todo cambio de pagos debe pasar `verify:pci-boundary` y el checklist definido
+  en `linqora-project/docs/governance/pci-ready-engineering-guidelines.md`.
+- Un cambio de checkout, proveedor o recorrido de datos requiere revisar el
+  alcance PCI antes de implementar.
+
 ## GitHub Y Operacion
 
 - Mantener issues y PRs tecnicos en el repo responsable.
@@ -48,6 +64,10 @@ Antes de planificar o implementar cambios:
   coordinacion cross-repo.
 - Usar el GitHub Project como tablero operativo y mantener `Workflow status`
   como estado primario.
+- Antes de informar estado general o pendientes, consultar el GitHub Project;
+  issues y PRs por repositorio son fuentes complementarias, no sustitutas.
+- Si el Project no puede leerse, declarar el inventario incompleto y no afirmar
+  que no existen pendientes. La consulta de estado debe fallar cerrado.
 - No cerrar items que dependen de actividad real o decision externa; dejarlos
   clasificados como `Ready`, `Blocked` o `Parked` segun corresponda.
 <!-- LINQORA_SHARED_AGENT_GUIDELINES:END -->
